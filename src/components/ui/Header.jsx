@@ -1,7 +1,6 @@
 import {cloneElement} from "react";
-import {AppBar, Box, Button, Fab, Fade, ownerDocument, Toolbar, useScrollTrigger} from "@mui/material";
+import {AppBar, Box, Button, Fab, Fade, ownerDocument, Toolbar, Typography, useScrollTrigger} from "@mui/material";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-
 
 function ElevationScroll(props) {
     const { children } = props;
@@ -53,7 +52,8 @@ const Header = () => {
             <ElevationScroll>
                 <AppBar>
                     <Toolbar>
-                        <Button variant="primary">کلیک کن</Button>
+                        <Typography variant="h5">سایت شخصی من</Typography>
+                        <Button variant="contained" color="secondary">کلیک کن</Button>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
