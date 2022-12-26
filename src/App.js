@@ -7,6 +7,7 @@ function App() {
   return (
       <MainLayout>
           <Header />
+          <p>Salam my dear..!</p>
           <Toolbar id="back-to-top-anchor" />
       </MainLayout>
   );
