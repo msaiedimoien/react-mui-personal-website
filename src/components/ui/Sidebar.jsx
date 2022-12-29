@@ -5,6 +5,14 @@ import {HomeOutlined, PersonOutlineOutlined, SummarizeOutlined,
     RecommendOutlined, MiscellaneousServicesOutlined, PermContactCalendarOutlined} from '@mui/icons-material';
 
 const Sidebar = () => {
+
+    const a11yProps = (index) => {
+        return {
+            id: `sidebar-tab-${index}`,
+            'aria-controls': `tabpanel-${index}`,
+        };
+    }
+
   return(
       <Grid
           xs={0} sm={0} md={3} lg={3} xl={2}
@@ -36,31 +44,37 @@ const Sidebar = () => {
                           label=" Home"
                           icon={<HomeOutlined />} iconPosition= "start"
                           sx={{mt: 2, color: grey[900], justifyContent: "start"}}
+                          {...a11yProps(0)}
                       />
                       <Tab
                           label=" About"
                           icon={<PersonOutlineOutlined />} iconPosition= "start"
                           sx={{color: grey[900], justifyContent: "start"}}
+                          {...a11yProps(1)}
                       />
                       <Tab
                           label=" Resume"
                           icon={<SummarizeOutlined />} iconPosition= "start"
                           sx={{color: grey[900], justifyContent: "start"}}
+                          {...a11yProps(2)}
                       />
                       <Tab
                           label=" Portfolio"
                           icon={<RecommendOutlined />} iconPosition= "start"
                           sx={{color: grey[900], justifyContent: "start"}}
+                          {...a11yProps(3)}
                       />
                       <Tab
                           label=" Services"
                           icon={<MiscellaneousServicesOutlined />} iconPosition= "start"
                           sx={{color: grey[900], justifyContent: "start"}}
+                          {...a11yProps(4)}
                       />
                       <Tab
                           label=" Contact"
                           icon={<PermContactCalendarOutlined />} iconPosition= "start"
                           sx={{color: grey[900], justifyContent: "start"}}
+                          {...a11yProps(5)}
                       />
                   </Tabs>
               </Box>
