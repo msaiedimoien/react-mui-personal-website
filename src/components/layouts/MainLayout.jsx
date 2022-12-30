@@ -1,4 +1,4 @@
-import {ThemeProvider, Typography} from "@mui/material";
+import {ThemeProvider} from "@mui/material";
 import {theme} from "../ui/theme";
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import {CacheProvider} from "@emotion/react";
@@ -6,7 +6,6 @@ import createCache from "@emotion/cache";
 import {prefixer} from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
 import Grid from "@mui/material/Unstable_Grid2";
-import Sidebar from "../ui/Sidebar";
 
 //NOTE Create RTL cache
 const cacheRTL = createCache({
@@ -24,13 +23,8 @@ export const MainLayout = ({children}) => {
                     </Helmet>
                     {/*Grid System*/}
                     <Grid container sx={{height: "100vh"}}>
-                        <Sidebar/>
-
-                        <Grid xs={12} sm={12} md={9} lg={9} xl={10} sx={{backgroundColor: "secondary.main"}}>
-                            <Typography variant="h6" sx={{textAlign: "center"}}>Main Content</Typography>
-                        </Grid>
+                        {children}
                     </Grid>
-                    {children}
                 </HelmetProvider>
             </ThemeProvider>
         </CacheProvider>

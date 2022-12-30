@@ -4,7 +4,7 @@ import {grey} from "@mui/material/colors";
 import {HomeOutlined, PersonOutlineOutlined, SummarizeOutlined,
     RecommendOutlined, MiscellaneousServicesOutlined, PermContactCalendarOutlined} from '@mui/icons-material';
 
-const Sidebar = () => {
+const Sidebar = ({value, handleChange}) => {
 
     const a11yProps = (index) => {
         return {
@@ -23,7 +23,7 @@ const Sidebar = () => {
           >
               <Hidden mdDown>
                   <Avatar
-                      src={require("../../assets/Avatar.png")}
+                      src={require("../assets/Avatar.png")}
                       sx={{height: 120, width: 120, margin: "0 auto"}}
                   />
               </Hidden>
@@ -39,6 +39,8 @@ const Sidebar = () => {
                       variant= "scrollable"
                       allowScrollButtonsMobile
                       style={{width: "100%"}}
+                      value={value}
+                      onChange={handleChange}
                   >
                       <Tab
                           label=" Home"
