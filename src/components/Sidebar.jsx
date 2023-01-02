@@ -1,86 +1,32 @@
-import {Avatar, Box, Divider, Hidden, Tab, Tabs, Typography} from "@mui/material";
+import {Drawer} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import {grey} from "@mui/material/colors";
-import {HomeOutlined, PersonOutlineOutlined, SummarizeOutlined,
-    RecommendOutlined, MiscellaneousServicesOutlined, PermContactCalendarOutlined} from '@mui/icons-material';
+import {useState} from "react";
+import DrawerContent from "./ui/DrawerContent";
 
 const Sidebar = ({value, handleChange}) => {
+    const[openDrawer, setOpenDrawer] = useState(false);
 
-    const a11yProps = (index) => {
-        return {
-            id: `sidebar-tab-${index}`,
-            'aria-controls': `tabpanel-${index}`,
-        };
-    }
+
 
   return(
       <Grid
           xs={0} sm={0} md={3} lg={3} xl={2}
           sx={{backgroundColor: "primary.main"}}
       >
-          <Box
-              sx={{justifyContent: "center", textAlign: "center", mt: 2}}
-          >
-              <Hidden mdDown>
-                  <Avatar
-                      src={require("../assets/Avatar.png")}
-                      sx={{height: 120, width: 120, margin: "0 auto"}}
-                  />
-              </Hidden>
-              <Typography variant="h6" sx={{color: grey[900], mt: 1}}>Mustafa Saeidi Moein</Typography>
-              <Typography variant="caption" sx={{color: grey[800]}}>ReactJS Programmer</Typography>
-              <Divider variant="middle" color={grey[900]} sx={{mt: 2}}/>
+          <DrawerContent value={value} handleChange={handleChange} />
 
-              <Box
-                  style={{paddingLeft: 15, paddingRight: 15}}
-              >
-                  <Tabs
-                      orientation= "vertical"
-                      variant= "scrollable"
-                      allowScrollButtonsMobile
-                      style={{width: "100%"}}
-                      value={value}
-                      onChange={handleChange}
-                  >
-                      <Tab
-                          label=" Home"
-                          icon={<HomeOutlined />} iconPosition= "start"
-                          sx={{mt: 2, color: grey[900], justifyContent: "start"}}
-                          {...a11yProps(0)}
-                      />
-                      <Tab
-                          label=" About"
-                          icon={<PersonOutlineOutlined />} iconPosition= "start"
-                          sx={{color: grey[900], justifyContent: "start"}}
-                          {...a11yProps(1)}
-                      />
-                      <Tab
-                          label=" Resume"
-                          icon={<SummarizeOutlined />} iconPosition= "start"
-                          sx={{color: grey[900], justifyContent: "start"}}
-                          {...a11yProps(2)}
-                      />
-                      <Tab
-                          label=" Portfolio"
-                          icon={<RecommendOutlined />} iconPosition= "start"
-                          sx={{color: grey[900], justifyContent: "start"}}
-                          {...a11yProps(3)}
-                      />
-                      <Tab
-                          label=" Services"
-                          icon={<MiscellaneousServicesOutlined />} iconPosition= "start"
-                          sx={{color: grey[900], justifyContent: "start"}}
-                          {...a11yProps(4)}
-                      />
-                      <Tab
-                          label=" Contact"
-                          icon={<PermContactCalendarOutlined />} iconPosition= "start"
-                          sx={{color: grey[900], justifyContent: "start"}}
-                          {...a11yProps(5)}
-                      />
-                  </Tabs>
-              </Box>
-          </Box>
+          <Drawer
+              open={openDrawer}
+              variant="temporary"
+              onClose={() => setOpenDrawer(false)}
+              sx={{
+                  "& .MuiDrawer-paper": {
+                      width: 300,
+                  },
+              }}
+          >
+              <DrawerContent value={value} handleChange={handleChange} />
+          </Drawer>
       </Grid>
   )
 };
