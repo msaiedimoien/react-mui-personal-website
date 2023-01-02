@@ -1,14 +1,14 @@
-import {Typography} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 const ContentContainer = ({ children }) => {
-  return(
-      <Grid xs={12} sm={12} md={9} lg={9} xl={10} sx={{backgroundColor: "secondary.main"}}>
-        <Typography variant="h6" sx={{textAlign: "center"}}>Main Content</Typography>
-
-        {children}
-      </Grid>
-  );
+    return (
+        <Grid
+            xs={12} sm={12} md={9} lg={9} xl={10}
+            sx={{backgroundColor: "secondary.main"}}
+        >
+            {children}
+        </Grid>
+    );
 };
 
 export default ContentContainer;
