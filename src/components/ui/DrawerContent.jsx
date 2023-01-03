@@ -8,7 +8,7 @@ import {
     SummarizeOutlined
 } from "@mui/icons-material";
 
-const DrawerContent = ({value, handleChange}) => {
+const DrawerContent = ({value, handleChange, openDrawer}) => {
 
     const a11yProps = (index) => {
         return {
@@ -21,12 +21,13 @@ const DrawerContent = ({value, handleChange}) => {
         <Box
             sx={{justifyContent: "center", textAlign: "center", mt: 2}}
         >
-            <Hidden mdDown>
-                <Avatar
-                    src={require("../../assets/Avatar.png")}
-                    sx={{height: 120, width: 120, margin: "0 auto"}}
-                />
-            </Hidden>
+            <Avatar
+                src={require("../../assets/Avatar.png")}
+                sx={{height: 120, width: 120, margin: "0 auto", display: {
+                    xs: openDrawer ? "block" : "none", sm: openDrawer ? "block" : "none",
+                        md: "block", lg: "block", xl: "block"
+                    }}}
+            />
             <Typography variant="h6" sx={{color: grey[900], mt: 1}}>Mustafa Saeidi Moein</Typography>
             <Typography variant="caption" sx={{color: grey[800]}}>ReactJS Programmer</Typography>
             <Divider variant="middle" color={grey[900]} sx={{mt: 2}}/>
