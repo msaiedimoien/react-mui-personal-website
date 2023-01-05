@@ -1,5 +1,5 @@
 import {Toolbar, Typography} from "@mui/material";
-import {MainLayout} from "./components/layouts/MainLayout";
+import {MainLayout} from "./layouts/MainLayout";
 import Sidebar from "./components/Sidebar";
 import ContentContainer from "./components/ContentContainer";
 import {useState} from "react";

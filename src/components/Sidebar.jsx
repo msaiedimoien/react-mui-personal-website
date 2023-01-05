@@ -1,15 +1,12 @@
 import {Box, Drawer, Fab} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import {useState} from "react";
-import DrawerContent from "./ui/DrawerContent";
+import DrawerContent from "./DrawerContent";
 import {MenuOutlined} from '@mui/icons-material';
+import {amber, red} from "@mui/material/colors";
 
 const Sidebar = ({value, handleChange}) => {
     const [openDrawer, setOpenDrawer] = useState(false);
-
-    const handleDrawerToggle = () => {
-        setOpenDrawer(!openDrawer);
-    };
 
     return (
         <Grid
@@ -25,10 +22,13 @@ const Sidebar = ({value, handleChange}) => {
                         lg: "none",
                         xl: "none"
                     },
-                    m: 3
+
                 }}
             >
-                <Fab aria-label="Sidebar" color="primary" onClick={handleDrawerToggle} size="medium">
+                <Fab
+                    aria-label="Sidebar" onClick={() => setOpenDrawer(true)} size="medium"
+                    sx={{m: 3, backgroundColor: amber[400]}}
+                >
                     <MenuOutlined/>
                 </Fab>
             </Box>
@@ -47,7 +47,9 @@ const Sidebar = ({value, handleChange}) => {
                     }
                 }}
             >
-                <DrawerContent value={value} handleChange={handleChange} openDrawer={openDrawer}/>
+                <DrawerContent
+                    value={value} handleChange={handleChange}
+                    openDrawer={openDrawer} setOpenDrawer={setOpenDrawer}/>
             </Drawer>
         </Grid>
     )

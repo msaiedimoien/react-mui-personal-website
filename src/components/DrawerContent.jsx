@@ -8,7 +8,7 @@ import {
     SummarizeOutlined
 } from "@mui/icons-material";
 
-const DrawerContent = ({value, handleChange, openDrawer}) => {
+const DrawerContent = ({value, handleChange, openDrawer, setOpenDrawer}) => {
 
     const a11yProps = (index) => {
         return {
@@ -22,7 +22,7 @@ const DrawerContent = ({value, handleChange, openDrawer}) => {
             sx={{justifyContent: "center", textAlign: "center", mt: 2}}
         >
             <Avatar
-                src={require("../../assets/Avatar.png")}
+                src={require("../assets/Avatar.png")}
                 sx={{height: 120, width: 120, margin: "0 auto", display: {
                     xs: openDrawer ? "block" : "none", sm: openDrawer ? "block" : "none",
                         md: "block", lg: "block", xl: "block"
@@ -46,37 +46,67 @@ const DrawerContent = ({value, handleChange, openDrawer}) => {
                     <Tab
                         label=" Home"
                         icon={<HomeOutlined/>} iconPosition="start"
-                        sx={{mt: 2, color: grey[900], justifyContent: "start"}}
+                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                            "&.MuiTab-root": {
+                            minHeight: 35
+                            }
+                        }}
+                        onClick={() => setOpenDrawer(false)}
                         {...a11yProps(0)}
                     />
                     <Tab
                         label=" About"
                         icon={<PersonOutlineOutlined/>} iconPosition="start"
-                        sx={{color: grey[900], justifyContent: "start"}}
+                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                            "&.MuiTab-root": {
+                                minHeight: 35
+                            }
+                        }}
+                        onClick={() => setOpenDrawer(false)}
                         {...a11yProps(1)}
                     />
                     <Tab
                         label=" Resume"
                         icon={<SummarizeOutlined/>} iconPosition="start"
-                        sx={{color: grey[900], justifyContent: "start"}}
+                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                            "&.MuiTab-root": {
+                                minHeight: 35
+                            }
+                        }}
+                        onClick={() => setOpenDrawer(false)}
                         {...a11yProps(2)}
                     />
                     <Tab
                         label=" Portfolio"
                         icon={<RecommendOutlined/>} iconPosition="start"
-                        sx={{color: grey[900], justifyContent: "start"}}
+                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                            "&.MuiTab-root": {
+                                minHeight: 35
+                            }
+                        }}
+                        onClick={() => setOpenDrawer(false)}
                         {...a11yProps(3)}
                     />
                     <Tab
                         label=" Services"
                         icon={<MiscellaneousServicesOutlined/>} iconPosition="start"
-                        sx={{color: grey[900], justifyContent: "start"}}
+                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                            "&.MuiTab-root": {
+                                minHeight: 35
+                            }
+                        }}
+                        onClick={() => setOpenDrawer(false)}
                         {...a11yProps(4)}
                     />
                     <Tab
                         label=" Contact"
                         icon={<PermContactCalendarOutlined/>} iconPosition="start"
-                        sx={{color: grey[900], justifyContent: "start"}}
+                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                            "&.MuiTab-root": {
+                                minHeight: 35
+                            }
+                        }}
+                        onClick={() => setOpenDrawer(false)}
                         {...a11yProps(5)}
                     />
                 </Tabs>

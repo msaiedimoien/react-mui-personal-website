@@ -1,5 +1,5 @@
 import {ThemeProvider} from "@mui/material";
-import {theme} from "../ui/theme";
+import {theme} from "./theme/theme";
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import {CacheProvider} from "@emotion/react";
 import createCache from "@emotion/cache";
