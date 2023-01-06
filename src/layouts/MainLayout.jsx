@@ -21,7 +21,6 @@ export const MainLayout = ({children}) => {
                     <Helmet>
                         <title>Mustafa Saeidi's WebSite</title>
                     </Helmet>
-                    {/*Grid System*/}
                     <Grid container sx={{height: "100vh"}}>
                         {children}
                     </Grid>

@@ -1,9 +1,10 @@
 import {Toolbar, Typography} from "@mui/material";
-import {MainLayout} from "./layouts/MainLayout";
-import Sidebar from "./components/Sidebar";
-import ContentContainer from "./components/ContentContainer";
+import {MainLayout} from "../layouts/MainLayout";
+import Sidebar from "../components/sidebar/Sidebar";
+import ContentContainer from "./ContentContainer";
 import {useState} from "react";
-import TabPanel from "./components/tabs/TabPanel";
+import TabPanel from "../components/TabPanel";
+import SidebarContainer from "./SidebarContainer";
 
 function App() {
     const [value, setValue] = useState(0);
@@ -15,7 +16,9 @@ function App() {
     return (
         <>
             <MainLayout>
-                <Sidebar value={value} handleChange={handleChange}/>
+                <SidebarContainer>
+                    <Sidebar value={value} handleChange={handleChange}/>
+                </SidebarContainer>
                 <ContentContainer>
                     <TabPanel value={value} index={0}>
                         <Typography variant="h5" sx={{textAlign: "center"}}>

@@ -1,4 +1,4 @@
-import {Avatar, Box, Divider, Hidden, Tab, Tabs, Typography} from "@mui/material";
+import {Box, Divider, Tab, Tabs} from "@mui/material";
 import {grey} from "@mui/material/colors";
 import {
     HomeOutlined,
@@ -7,6 +7,7 @@ import {
     RecommendOutlined,
     SummarizeOutlined
 } from "@mui/icons-material";
+import SidebarHeader from "./sidebar/SidebarHeader";
 
 const DrawerContent = ({value, handleChange, openDrawer, setOpenDrawer}) => {
 
@@ -21,15 +22,7 @@ const DrawerContent = ({value, handleChange, openDrawer, setOpenDrawer}) => {
         <Box
             sx={{justifyContent: "center", textAlign: "center", mt: 2}}
         >
-            <Avatar
-                src={require("../assets/Avatar.png")}
-                sx={{height: 120, width: 120, margin: "0 auto", display: {
-                    xs: openDrawer ? "block" : "none", sm: openDrawer ? "block" : "none",
-                        md: "block", lg: "block", xl: "block"
-                    }}}
-            />
-            <Typography variant="h6" sx={{color: grey[900], mt: 1}}>Mustafa Saeidi Moein</Typography>
-            <Typography variant="caption" sx={{color: grey[800]}}>ReactJS Programmer</Typography>
+            <SidebarHeader openDrawer={openDrawer}/>
             <Divider variant="middle" color={grey[900]} sx={{mt: 2}}/>
 
             <Box
@@ -46,9 +39,10 @@ const DrawerContent = ({value, handleChange, openDrawer, setOpenDrawer}) => {
                     <Tab
                         label=" Home"
                         icon={<HomeOutlined/>} iconPosition="start"
-                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                        sx={{
+                            mt: 2, color: grey[900], justifyContent: "start",
                             "&.MuiTab-root": {
-                            minHeight: 35
+                                minHeight: 35
                             }
                         }}
                         onClick={() => setOpenDrawer(false)}
@@ -57,7 +51,8 @@ const DrawerContent = ({value, handleChange, openDrawer, setOpenDrawer}) => {
                     <Tab
                         label=" About"
                         icon={<PersonOutlineOutlined/>} iconPosition="start"
-                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                        sx={{
+                            mt: 2, color: grey[900], justifyContent: "start",
                             "&.MuiTab-root": {
                                 minHeight: 35
                             }
@@ -68,7 +63,8 @@ const DrawerContent = ({value, handleChange, openDrawer, setOpenDrawer}) => {
                     <Tab
                         label=" Resume"
                         icon={<SummarizeOutlined/>} iconPosition="start"
-                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                        sx={{
+                            mt: 2, color: grey[900], justifyContent: "start",
                             "&.MuiTab-root": {
                                 minHeight: 35
                             }
@@ -79,7 +75,8 @@ const DrawerContent = ({value, handleChange, openDrawer, setOpenDrawer}) => {
                     <Tab
                         label=" Portfolio"
                         icon={<RecommendOutlined/>} iconPosition="start"
-                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                        sx={{
+                            mt: 2, color: grey[900], justifyContent: "start",
                             "&.MuiTab-root": {
                                 minHeight: 35
                             }
@@ -90,7 +87,8 @@ const DrawerContent = ({value, handleChange, openDrawer, setOpenDrawer}) => {
                     <Tab
                         label=" Services"
                         icon={<MiscellaneousServicesOutlined/>} iconPosition="start"
-                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                        sx={{
+                            mt: 2, color: grey[900], justifyContent: "start",
                             "&.MuiTab-root": {
                                 minHeight: 35
                             }
@@ -101,7 +99,8 @@ const DrawerContent = ({value, handleChange, openDrawer, setOpenDrawer}) => {
                     <Tab
                         label=" Contact"
                         icon={<PermContactCalendarOutlined/>} iconPosition="start"
-                        sx={{mt: 2, color: grey[900], justifyContent: "start",
+                        sx={{
+                            mt: 2, color: grey[900], justifyContent: "start",
                             "&.MuiTab-root": {
                                 minHeight: 35
                             }
