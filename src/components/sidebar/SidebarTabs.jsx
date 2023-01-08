@@ -7,8 +7,11 @@ import {
     SummarizeOutlined
 } from "@mui/icons-material";
 import {grey} from "@mui/material/colors";
+import {useContext} from "react";
+import MainContext from "../../context";
 
-const SidebarTabs = ({value, handleChange, setOpenDrawer}) => {
+const SidebarTabs = () => {
+    const {pageNumber, handlePageNumber, setDrawerOpen} = useContext(MainContext);
     const a11yProps = (index) => {
         return {
             id: `sidebar-tab-${index}`,
@@ -22,8 +25,8 @@ const SidebarTabs = ({value, handleChange, setOpenDrawer}) => {
             variant="scrollable"
             allowScrollButtonsMobile
             style={{width: "100%"}}
-            value={value}
-            onChange={handleChange}
+            value={pageNumber}
+            onChange={handlePageNumber}
         >
             <Tab
                 label=" Home"
@@ -34,7 +37,7 @@ const SidebarTabs = ({value, handleChange, setOpenDrawer}) => {
                         minHeight: 35
                     }
                 }}
-                onClick={() => setOpenDrawer(false)}
+                onClick={() => setDrawerOpen(false)}
                 {...a11yProps(0)}
             />
             <Tab
@@ -46,7 +49,7 @@ const SidebarTabs = ({value, handleChange, setOpenDrawer}) => {
                         minHeight: 35
                     }
                 }}
-                onClick={() => setOpenDrawer(false)}
+                onClick={() => setDrawerOpen(false)}
                 {...a11yProps(1)}
             />
             <Tab
@@ -58,7 +61,7 @@ const SidebarTabs = ({value, handleChange, setOpenDrawer}) => {
                         minHeight: 35
                     }
                 }}
-                onClick={() => setOpenDrawer(false)}
+                onClick={() => setDrawerOpen(false)}
                 {...a11yProps(2)}
             />
             <Tab
@@ -70,7 +73,7 @@ const SidebarTabs = ({value, handleChange, setOpenDrawer}) => {
                         minHeight: 35
                     }
                 }}
-                onClick={() => setOpenDrawer(false)}
+                onClick={() => setDrawerOpen(false)}
                 {...a11yProps(3)}
             />
             <Tab
@@ -82,7 +85,7 @@ const SidebarTabs = ({value, handleChange, setOpenDrawer}) => {
                         minHeight: 35
                     }
                 }}
-                onClick={() => setOpenDrawer(false)}
+                onClick={() => setDrawerOpen(false)}
                 {...a11yProps(4)}
             />
             <Tab
@@ -94,7 +97,7 @@ const SidebarTabs = ({value, handleChange, setOpenDrawer}) => {
                         minHeight: 35
                     }
                 }}
-                onClick={() => setOpenDrawer(false)}
+                onClick={() => setDrawerOpen(false)}
                 {...a11yProps(5)}
             />
         </Tabs>

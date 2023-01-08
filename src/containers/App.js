@@ -5,55 +5,59 @@ import {useState} from "react";
 import TabPanel from "../components/TabPanel";
 import ContentContainer from "./ContentContainer";
 import SidebarContainer from "./SidebarContainer";
+import MainContext from "../context";
 
 function App() {
-    const [value, setValue] = useState(0);
+    const [pageNumber, setPageNumber] = useState(0);
+    const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+    const handlePageNumber = (event, newValue) => {
+        setPageNumber(newValue);
     };
 
     return (
-        <>
-            <MainLayout>
-                <SidebarContainer>
-                    <Sidebar value={value} handleChange={handleChange}/>
-                </SidebarContainer>
-                <ContentContainer>
-                    <TabPanel value={value} index={0}>
-                        <Typography variant="h5" sx={{textAlign: "center"}}>
-                            Home
-                        </Typography>
-                    </TabPanel>
-                    <TabPanel value={value} index={1}>
-                        <Typography variant="h5" sx={{textAlign: "center"}}>
-                            About
-                        </Typography>
-                    </TabPanel>
-                    <TabPanel value={value} index={2}>
-                        <Typography variant="h5" sx={{textAlign: "center"}}>
-                            Resume
-                        </Typography>
-                    </TabPanel>
-                    <TabPanel value={value} index={3}>
-                        <Typography variant="h5" sx={{textAlign: "center"}}>
-                            Portfolio
-                        </Typography>
-                    </TabPanel>
-                    <TabPanel value={value} index={4}>
-                        <Typography variant="h5" sx={{textAlign: "center"}}>
-                            Services
-                        </Typography>
-                    </TabPanel>
-                    <TabPanel value={value} index={5}>
-                        <Typography variant="h5" sx={{textAlign: "center"}}>
-                            Contact
-                        </Typography>
-                    </TabPanel>
-                </ContentContainer>
-            </MainLayout>
-            <Toolbar id="back-to-top-anchor"/>
-        </>
+        <MainContext.Provider value={{pageNumber, handlePageNumber, drawerOpen, setDrawerOpen}}>
+            <>
+                <MainLayout>
+                    <SidebarContainer>
+                        <Sidebar/>
+                    </SidebarContainer>
+                    <ContentContainer>
+                        <TabPanel value={pageNumber} index={0}>
+                            <Typography variant="h5" sx={{textAlign: "center"}}>
+                                Home
+                            </Typography>
+                        </TabPanel>
+                        <TabPanel value={pageNumber} index={1}>
+                            <Typography variant="h5" sx={{textAlign: "center"}}>
+                                About
+                            </Typography>
+                        </TabPanel>
+                        <TabPanel value={pageNumber} index={2}>
+                            <Typography variant="h5" sx={{textAlign: "center"}}>
+                                Resume
+                            </Typography>
+                        </TabPanel>
+                        <TabPanel value={pageNumber} index={3}>
+                            <Typography variant="h5" sx={{textAlign: "center"}}>
+                                Portfolio
+                            </Typography>
+                        </TabPanel>
+                        <TabPanel value={pageNumber} index={4}>
+                            <Typography variant="h5" sx={{textAlign: "center"}}>
+                                Services
+                            </Typography>
+                        </TabPanel>
+                        <TabPanel value={pageNumber} index={5}>
+                            <Typography variant="h5" sx={{textAlign: "center"}}>
+                                Contact
+                            </Typography>
+                        </TabPanel>
+                    </ContentContainer>
+                </MainLayout>
+                <Toolbar id="back-to-top-anchor"/>
+            </>
+        </MainContext.Provider>
     );
 };
 
