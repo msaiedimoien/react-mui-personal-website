@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Unstable_Grid2";
 
-const ContentContainer = ({ children }) => {
+const PageContainer = ({ children }) => {
     return (
         <Grid
             xs={12} sm={12} md={9} lg={9} xl={10}
@@ -11,4 +11,4 @@ const ContentContainer = ({ children }) => {
     );
 };
 
-export default ContentContainer;
+export default PageContainer;

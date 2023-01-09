@@ -1,11 +1,12 @@
-import {Toolbar, Typography} from "@mui/material";
+import {Box, Toolbar, Typography} from "@mui/material";
 import {MainLayout} from "../layouts/MainLayout";
 import {Sidebar} from "../components/sidebar";
 import {useState} from "react";
-import TabPanel from "../components/tabs/TabPanel";
-import ContentContainer from "./ContentContainer";
+import Page from "../components/pages/Page";
+import PageContainer from "./PageContainer";
 import SidebarContainer from "./SidebarContainer";
 import MainContext from "../context";
+import DrawerActionButton from "../components/sidebar/drawer/DrawerActionButton";
 
 function App() {
     const [pageNumber, setPageNumber] = useState(0);
@@ -19,43 +20,53 @@ function App() {
         <MainContext.Provider value={{pageNumber, handlePageNumber, drawerOpen, setDrawerOpen}}>
             <>
                 <MainLayout>
+                    <DrawerActionButton />
                     <SidebarContainer>
                         <Sidebar/>
                     </SidebarContainer>
-                    <ContentContainer>
-                        <TabPanel pageNumber={pageNumber} index={0}>
-                            <Typography variant="h5" sx={{textAlign: "center"}}>
-                                Home
-                            </Typography>
-                        </TabPanel>
-                        <TabPanel pageNumber={pageNumber} index={1}>
+                    <PageContainer>
+                        <Page pageNumber={pageNumber} index={0}>
+                            <Box sx={{
+                                backgroundImage: `url(${require("../assets/bg01.jpeg")})`,
+                                height: "100vh",
+                                backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
+                                backgroundSize: "cover"
+                            }}>
+                                <Typography variant="h5" sx={{textAlign: "center", color: "whiteSmoke"}}>
+                                    Home
+                                </Typography>
+                            </Box>
+
+                        </Page>
+                        <Page pageNumber={pageNumber} index={1}>
                             <Typography variant="h5" sx={{textAlign: "center"}}>
                                 About
                             </Typography>
-                        </TabPanel>
-                        <TabPanel pageNumber={pageNumber} index={2}>
+                        </Page>
+                        <Page pageNumber={pageNumber} index={2}>
                             <Typography variant="h5" sx={{textAlign: "center"}}>
                                 Resume
                             </Typography>
-                        </TabPanel>
-                        <TabPanel pageNumber={pageNumber} index={3}>
+                        </Page>
+                        <Page pageNumber={pageNumber} index={3}>
                             <Typography variant="h5" sx={{textAlign: "center"}}>
                                 Portfolio
                             </Typography>
-                        </TabPanel>
-                        <TabPanel pageNumber={pageNumber} index={4}>
+                        </Page>
+                        <Page pageNumber={pageNumber} index={4}>
                             <Typography variant="h5" sx={{textAlign: "center"}}>
                                 Services
                             </Typography>
-                        </TabPanel>
-                        <TabPanel pageNumber={pageNumber} index={5}>
+                        </Page>
+                        <Page pageNumber={pageNumber} index={5}>
                             <Typography variant="h5" sx={{textAlign: "center"}}>
                                 Contact
                             </Typography>
-                        </TabPanel>
-                    </ContentContainer>
+                        </Page>
+                    </PageContainer>
                 </MainLayout>
-                <Toolbar id="back-to-top-anchor"/>
+                {/*<Toolbar id="back-to-top-anchor"/>*/}
             </>
         </MainContext.Provider>
     );
