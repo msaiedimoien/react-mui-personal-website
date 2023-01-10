@@ -1,4 +1,4 @@
-import {Box, Toolbar, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 import {MainLayout} from "../layouts/MainLayout";
 import {Sidebar} from "../components/sidebar";
 import {useState} from "react";
@@ -7,6 +7,8 @@ import PageContainer from "./PageContainer";
 import SidebarContainer from "./SidebarContainer";
 import MainContext from "../context";
 import DrawerActionButton from "../components/sidebar/drawer/DrawerActionButton";
+import SwipeableViews from "react-swipeable-views";
+import Home from "../components/pages/Home";
 
 function App() {
     const [pageNumber, setPageNumber] = useState(0);
@@ -25,45 +27,44 @@ function App() {
                         <Sidebar/>
                     </SidebarContainer>
                     <PageContainer>
-                        <Page pageNumber={pageNumber} index={0}>
-                            <Box sx={{
-                                backgroundImage: `url(${require("../assets/bg01.jpeg")})`,
-                                height: "100vh",
-                                backgroundPosition: "center",
-                                backgroundRepeat: "no-repeat",
-                                backgroundSize: "cover"
-                            }}>
-                                <Typography variant="h5" sx={{textAlign: "center", color: "whiteSmoke"}}>
-                                    Home
-                                </Typography>
-                            </Box>
+                        <SwipeableViews
+                            index={pageNumber}
+                            onChangeIndex={handlePageNumber}
+                        >
+                            <Page pageNumber={pageNumber} index={0}>
+                                <Home />
+                            </Page>
 
-                        </Page>
-                        <Page pageNumber={pageNumber} index={1}>
-                            <Typography variant="h5" sx={{textAlign: "center"}}>
-                                About
-                            </Typography>
-                        </Page>
-                        <Page pageNumber={pageNumber} index={2}>
-                            <Typography variant="h5" sx={{textAlign: "center"}}>
-                                Resume
-                            </Typography>
-                        </Page>
-                        <Page pageNumber={pageNumber} index={3}>
-                            <Typography variant="h5" sx={{textAlign: "center"}}>
-                                Portfolio
-                            </Typography>
-                        </Page>
-                        <Page pageNumber={pageNumber} index={4}>
-                            <Typography variant="h5" sx={{textAlign: "center"}}>
-                                Services
-                            </Typography>
-                        </Page>
-                        <Page pageNumber={pageNumber} index={5}>
-                            <Typography variant="h5" sx={{textAlign: "center"}}>
-                                Contact
-                            </Typography>
-                        </Page>
+                            <Page pageNumber={pageNumber} index={1}>
+                                <Typography variant="h5" sx={{textAlign: "center"}}>
+                                    About
+                                </Typography>
+                            </Page>
+
+                            <Page pageNumber={pageNumber} index={2}>
+                                <Typography variant="h5" sx={{textAlign: "center"}}>
+                                    Resume
+                                </Typography>
+                            </Page>
+
+                            <Page pageNumber={pageNumber} index={3}>
+                                <Typography variant="h5" sx={{textAlign: "center"}}>
+                                    Portfolio
+                                </Typography>
+                            </Page>
+
+                            <Page pageNumber={pageNumber} index={4}>
+                                <Typography variant="h5" sx={{textAlign: "center"}}>
+                                    Services
+                                </Typography>
+                            </Page>
+
+                            <Page pageNumber={pageNumber} index={5}>
+                                <Typography variant="h5" sx={{textAlign: "center"}}>
+                                    Contact
+                                </Typography>
+                            </Page>
+                        </SwipeableViews>
                     </PageContainer>
                 </MainLayout>
                 {/*<Toolbar id="back-to-top-anchor"/>*/}

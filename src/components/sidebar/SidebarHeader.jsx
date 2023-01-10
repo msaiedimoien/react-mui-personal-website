@@ -2,6 +2,7 @@ import {Avatar, Typography} from "@mui/material";
 import {grey} from "@mui/material/colors";
 import {useContext} from "react";
 import MainContext from "../../context";
+import avatar from "../../assets/Avatar.png"
 
 const SidebarHeader = () => {
     const {drawerOpen} = useContext(MainContext);
@@ -9,7 +10,7 @@ const SidebarHeader = () => {
     return (
         <>
             <Avatar
-                src={require("../../assets/Avatar.png")}
+                src={avatar}
                 sx={{
                     height: 120, width: 120, margin: "0 auto", display: {
                         xs: drawerOpen ? "block" : "none", sm: drawerOpen ? "block" : "none",
