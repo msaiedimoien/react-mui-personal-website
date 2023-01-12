@@ -1,7 +1,10 @@
-import {useEffect, useRef} from "react";
+import {useCallback, useEffect, useRef} from "react";
 import {Box, Typography} from "@mui/material";
 import bg01 from "../../assets/bg01.jpeg";
 import Typed from "typed.js";
+import Particles from "react-particles";
+import {loadFull} from "tsparticles";
+import {hexagon} from "../../constants/particles";
 
 const Home = () => {
     const nameEl = useRef(null);
@@ -39,6 +42,14 @@ const Home = () => {
         };
     }, []);
 
+    const particlesInit = useCallback(async engine => {
+        await loadFull(engine);
+    }, []);
+
+    const particlesLoaded = useCallback(async container => {
+        await console.log(container);
+    }, []);
+
     return (
         <Box sx={{
             backgroundImage: `url(${bg01})`,
@@ -51,6 +62,12 @@ const Home = () => {
             justifyContent: "center",
             alignItems: "center"
         }}>
+            <Particles
+                id="tsparticles"
+                init={particlesInit}
+                loaded={particlesLoaded}
+                options={hexagon}
+            />
             <Typography ref={nameEl} variant="h4" sx={{color: "whiteSmoke"}} />
             <Typography ref={infoEl} variant="h5" sx={{
                 color: "whiteSmoke",
