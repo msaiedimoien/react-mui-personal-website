@@ -8,7 +8,7 @@ import SidebarContainer from "./SidebarContainer";
 import MainContext from "../context";
 import DrawerActionButton from "../components/sidebar/drawer/DrawerActionButton";
 import SwipeableViews from "react-swipeable-views";
-import {Home, About} from "../components/pages";
+import {Home, About, Resume} from "../components/pages";
 
 function App() {
     const [pageNumber, setPageNumber] = useState(0);
@@ -40,9 +40,7 @@ function App() {
                             </Page>
 
                             <Page pageNumber={pageNumber} index={2}>
-                                <Typography variant="h5" sx={{textAlign: "center"}}>
-                                    Resume
-                                </Typography>
+                                <Resume />
                             </Page>
 
                             <Page pageNumber={pageNumber} index={3}>
