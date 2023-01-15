@@ -4,7 +4,7 @@ import bg01 from "../../assets/bg01.jpeg";
 import Typed from "typed.js";
 import Particles from "react-particles";
 import {loadFull} from "tsparticles";
-import {hexagon} from "../../constants/particles";
+import {hexagon, links} from "../../constants/particles";
 
 const Home = () => {
     const nameEl = useRef(null);
@@ -66,7 +66,7 @@ const Home = () => {
                 id="tsparticles"
                 init={particlesInit}
                 loaded={particlesLoaded}
-                options={hexagon}
+                options={links}
             />
             <Typography ref={nameEl} variant="h4" sx={{color: "whiteSmoke"}} />
             <Typography ref={infoEl} variant="h5" sx={{
